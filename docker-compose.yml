@@ -11,7 +11,7 @@ services:
     ports:
       - '${APP_PORT}:6901'
     environment:
-      - VNC_PW=password
+      - VNC_PW=$APP_PASSWORD
 
 networks:
   default:
