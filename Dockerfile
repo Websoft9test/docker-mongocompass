@@ -1,18 +1,27 @@
-# image: https://hub.docker.com/r/websoft9dev/discuzq
+FROM kasmweb/desktop:1.10.0
+USER root
 
-FROM ccr.ccs.tencentyun.com/discuzq/dzq:latest
+ENV HOME /home/kasm-default-profile
+ENV STARTUPDIR /dockerstartup
+ENV INST_SCRIPTS $STARTUPDIR/install
+WORKDIR $HOME
 
-LABEL maintainer="help@websoft9.com"
-LABEL version="latest"
-LABEL description="DiscuzQ"
 
-ENV DISCUZQ_MYSQL_HOST=mysql
-ENV DISCUZQ_MYSQL_USER=discuzq
-ENV DISCUZQ_MYSQL_PASSWORD=discuzq
-ENV DISCUZQ_MYSQL_DATABASE=discuzq
-ENV DISCUZQ_SITENAME=DiscuzQ
+######### Customize Container Here ###########
 
-COPY cmd.sh /tmp
-RUN chmod +x /tmp/cmd.sh
 
-CMD ["/tmp/cmd.sh"]
+RUN wget https://downloads.mongodb.com/compass/mongodb-compass_1.31.3_amd64.deb && dpkg -i mongodb-compass_1.31.3_amd64.deb \
+    && cp /usr/share/applications/mongodb-compass.desktop $HOME/Desktop/ \
+    && chmod +x $HOME/Desktop/mongodb-compass.desktop \
+    && chown 1000:1000 $HOME/Desktop/mongodb-compass.desktop
+
+######### End Customizations ###########
+
+RUN chown 1000:0 $HOME
+RUN $STARTUPDIR/set_user_permission.sh $HOME
+
+ENV HOME /home/kasm-user
+WORKDIR $HOME
+RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+
+USER 1000

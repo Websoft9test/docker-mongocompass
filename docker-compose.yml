@@ -6,7 +6,7 @@ version: '3.8'
 
 services:
   kasmweb:
-    image: kasmweb/desktop:${APP_VERSION}
+    image: compass:${APP_VERSION}
     container_name: ${APP_NAME}
     ports:
       - '${APP_PORT}:6901'
