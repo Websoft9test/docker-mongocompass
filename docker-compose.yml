@@ -1,6 +1,4 @@
-# image: https://hub.docker.com/r/kasmweb/desktop
-# sudo docker run --rm  -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/<image>:<tag>
-
+# Powered by Websoft9
 
 version: '3.8'
 
