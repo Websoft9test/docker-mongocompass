@@ -25,4 +25,4 @@ networks:
       name: ${APP_NAME}
 
 volumes:
-  kasmweb:
+  mongocompass:
