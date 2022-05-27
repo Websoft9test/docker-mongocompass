@@ -5,8 +5,8 @@
 version: '3.8'
 
 services:
-  kasmweb:
-    image: compass:${APP_VERSION}
+  mongocompass:
+    image: websoft9dev/mongocompass:${APP_VERSION}
     container_name: ${APP_NAME}
     ports:
       - '${APP_PORT}:6901'
