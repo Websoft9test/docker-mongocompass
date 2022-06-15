@@ -6,6 +6,7 @@ services:
   mongocompass:
     image: websoft9dev/mongocompass:${APP_VERSION}
     container_name: ${APP_NAME}
+    restart: always
     ports:
       - '${APP_PORT}:6901'
     environment:
