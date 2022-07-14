@@ -1,7 +1,7 @@
 {
   "name": "mongocompass",
   "trademark": "MongoDB Compass",
-  "installpath": "/data/wwwroot/mongocompass",
+  "installpath": "/data/apps/mongocompass",
   "compose_file": "docker-compose.yml",
   "env_file": ".env",
   "requirements":{
