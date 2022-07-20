@@ -1,6 +1,8 @@
 # MongoDB Compass
 
-MongoDB Compass is a desktop client, so is based on a Desktop docker image Kasmweb
+MongoDB Compass is a desktop client, so is based on a Desktop docker image Kasmweb  
+
+Must use **HTTPS** to access this application  
 
 ## FAQ
 
