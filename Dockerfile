@@ -4,7 +4,7 @@ USER root
 ENV HOME /home/kasm-default-profile
 ENV STARTUPDIR /dockerstartup
 ENV $STARTUPDIR/install
-ENV COMPASS_VERSION=1.31.3
+ENV COMPASSVERSION=1.31.3
 WORKDIR $HOME
 
 
@@ -16,8 +16,8 @@ RUN apt install -y sudo \
     && useradd -m -d /home/kasm-user -s /bin/bash kasm-user \
     && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
-RUN wget https://downloads.mongodb.com/compass/mongodb-compass_$COMPASS_VERSION_amd64.deb \
-    && dpkg -i mongodb-compass_$COMPASS_VERSION_amd64.deb \
+RUN wget https://downloads.mongodb.com/compass/mongodb-compass_$COMPASSVERSION_amd64.deb \
+    && dpkg -i mongodb-compass_$COMPASSVERSION_amd64.deb \
     && cp /usr/share/applications/mongodb-compass.desktop $HOME/Desktop/ \
     && chmod +x $HOME/Desktop/mongodb-compass.desktop \
     && chown 1000:1000 $HOME/Desktop/mongodb-compass.desktop
@@ -26,7 +26,7 @@ RUN desktop-file-edit \
 --set-key="Exec" --set-value="sudo mongodb-compass %U --no-sandbox" \
 $HOME/Desktop/mongodb-compass.desktop
 
-RUN  rm -rf mongodb-compass_$COMPASS_VERSION_amd64.deb
+RUN  rm -rf mongodb-compass_$COMPASSVERSION_amd64.deb
 
 ######### End Customizations ###########
 
